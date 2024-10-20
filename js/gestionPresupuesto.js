@@ -23,6 +23,9 @@ function CrearGasto(descripcion, valor) {
     this.descripcion = descripcion;
     this.valor= (!(isNaN(valor)) && (valor >= 0)) ? valor : 0;
 
+    this.mostrarGasto = function (){
+        return `Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €`;
+    }
 
 }
 
