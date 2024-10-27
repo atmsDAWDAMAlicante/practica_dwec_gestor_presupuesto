@@ -87,7 +87,7 @@ function calcularBalance(){
 } 
 
 
-
+/*
 let miGasto1 = new CrearGasto("Hola1", 4,"03/08/02", "una", "dos", "tres");
 let miGasto2 = new CrearGasto("Hola2", 3,"03/08/02", "una", "dos", "tres");
 let miGasto3 = new CrearGasto("Hola3", 3,"03/08/02", "una", "dos", "tres");
@@ -95,17 +95,17 @@ anyadirGasto(miGasto1);
 anyadirGasto(miGasto2);
 anyadirGasto(miGasto3);
 console.log(calcularTotalGastos());
-/*
+
 for (let etiqueta of miGasto1.etiquetas)
 {
     console.log(etiqueta);
 }
-*/
+
 console.log("Mi gasto: " + miGasto2.id)
 borrarGasto(0);
 borrarGasto(2);
 borrarGasto(3);
-/*
+
 for (let losGastos of gastos)
 {
     console.log(losGastos.descripcion)
