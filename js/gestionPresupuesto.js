@@ -26,6 +26,10 @@ function mostrarPresupuesto() {
 function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
     this.descripcion = descripcion;
     this.valor= (!(isNaN(valor)) && (valor >= 0)) ? valor : 0;
+    // Apartado de la fecha
+    let diaHoyTimestamp = Date.now();
+    let diaHoyOK = this.devuelveFechaLegible(new Date(diaHoyTimestamp));
+
     this.fecha = fecha;
     this.etiquetas = etiquetas;
 
@@ -40,6 +44,11 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
     this.actualizarValor = function(nuevoValor){
         if (nuevoValor >= 0)
             this.valor = nuevoValor;
+    }
+
+    this.devuelveFechaLegible = function(fecha)
+    {
+        return fecha.toLocaleString();
     }
 
 }
@@ -83,9 +92,13 @@ return resultado;
 
 
 function calcularBalance(){
-
+    let gastosTotales = calcularTotalGastos();
+    return (presupuesto - gastosTotales);
 } 
 
+let miGasto1 = new CrearGasto("Hola1", 4,"03/08/02", "una", "dos", "tres");
+let diaHoyTimestamp = Date.now();
+let diaHoyOK = miGasto1.devuelveFechaLegible(new Date(diaHoyTimestamp));
 
 /*
 let miGasto1 = new CrearGasto("Hola1", 4,"03/08/02", "una", "dos", "tres");
