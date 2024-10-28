@@ -71,15 +71,17 @@ function anyadirGasto(gasto){
 
 
 function borrarGasto(idAborrar){
-    console.log("Gasto a borrar nº " + gastos[idAborrar].valor)
-for (let unGasto of gastos){
+// Aquí hay que usar findIndex, porque find devuelve el elemento que cumple la condición
+// CUIDADO CON LA FUNCIÓN FLECHA Y EL RETURN
 
-    if (unGasto.id == idAborrar){
-        console.log(`Borramos el gasto ${unGasto.id}`)
-        gastos.splice(idAborrar,1);
+// PRIMERO: find devuelve el ÍNDICE
+
+let ElIDAborrar = gastos.findIndex((elementoAborrar) =>
+    elementoAborrar.id == idAborrar
+);
+// Sin la función flecha o con las llaves {} PONER RETURN
+        gastos.splice(ElIDAborrar,1);
         console.log(`quedan ${gastos.length}`)
-    }
-}
 }  
 
 
