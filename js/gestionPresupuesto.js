@@ -27,10 +27,13 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
     this.descripcion = descripcion;
     this.valor= (!(isNaN(valor)) && (valor >= 0)) ? valor : 0;
     // Apartado de la fecha
-    let diaHoyTimestamp = Date.now();
-    let diaHoyOK = this.devuelveFechaLegible(new Date(diaHoyTimestamp));
-
-    this.fecha = fecha;
+    let fechaSinVerificar = Date.parse(fecha);
+    this.fecha = !isNaN(fechaSinVerificar) ? fechaSinVerificar : Date.now(); 
+    // NOTAS SOBRE LA FECHA:
+    // fechaSinVerificar guarda un timestamp
+    // Date.now() guarda un timestamp
+    // Con el operador ternario, en cualquiera de los dos casos SIEMPRE SE ALMACENARÁ UN NÚMERO (timestamp)
+    // Date.parse() y Date.now -- son estáticos (no se crea objeto) y DEVUELVEN TIMESTAMP 
     this.etiquetas = etiquetas;
 
     this.mostrarGasto = function (){
