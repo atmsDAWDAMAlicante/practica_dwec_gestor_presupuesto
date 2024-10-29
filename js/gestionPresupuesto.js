@@ -54,7 +54,35 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
         return fecha.toLocaleString();
     }
 
-}
+    this.mostrarGastoCompleto = function()
+    {
+        /*
+Gasto correspondiente a DESCRIPCION con valor VALOR €.
+Fecha: FECHA_EN_FORMATO_LOCALIZADO
+Etiquetas:
+ - ETIQUETA 1
+ - ETIQUETA 2
+ - ETIQUETA 3
+        */
+    }
+
+    this.actualizarFecha = function(fecha){
+        let fechaSinVerificar = Date.parse(fecha);
+        if (!(isNaN(fechaSinVerificar)))
+            { 
+                fecha = fechaSinVerificar;
+            } 
+    }
+
+    this.anyadirEtiquetas = function(){
+        return -1;
+    }
+
+    this.borrarEtiquetas = function(){
+        return -1;
+    }
+
+} // Cierre del objeto
 
 function listarGastos(){
     return gastos;
