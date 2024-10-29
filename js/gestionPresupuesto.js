@@ -68,7 +68,11 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
         */
         resultado += `Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €.\n`
 
-        resultado += `Fecha: ${this.fecha.toLocaleString('es-ES')}\n`
+        //resultado += `Fecha: ${this.fecha.toLocaleString('es-ES')}\n`
+        // DESDE LUEGO A ESTA SOLUCIÓN HE LLEGADO COMO ENCONTRÓ FLEMING LA PENICILINA!!!!!!!!
+        let fechaEnTimeStamp = this.fecha;
+        let fechaNormal = new Date(fechaEnTimeStamp).toLocaleString();
+        resultado += `Fecha: ${fechaNormal}\n`
 
         let concatenarEtiquetas = "Etiquetas:\n";
         for (let unaEtiqueta of this.etiquetas){
@@ -76,6 +80,12 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
         }
 
         resultado += concatenarEtiquetas;
+        return resultado;
+    }
+
+    function validarFecha(fecha){ // FUNCIÓN AUXILIAR QUE LUEGO VERÉ QUÉ HAGO CON ELLA
+        let resultado = new Date();
+        resultado = fecha.toLocaleString();
         return resultado;
     }
 
