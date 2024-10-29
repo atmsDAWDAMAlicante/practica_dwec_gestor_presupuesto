@@ -29,6 +29,7 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
     // Apartado de la fecha
     let fechaSinVerificar = Date.parse(fecha);
     this.fecha = !isNaN(fechaSinVerificar) ? fechaSinVerificar : Date.now(); 
+    //this.fecha = !isNaN(fechaSinVerificar) ? new Date(fechaSinVerificar) : new Date(); 
     // NOTAS SOBRE LA FECHA:
     // fechaSinVerificar guarda un timestamp
     // Date.now() guarda un timestamp
@@ -56,21 +57,34 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
 
     this.mostrarGastoCompleto = function()
     {
+        let resultado = "";
         /*
-Gasto correspondiente a DESCRIPCION con valor VALOR €.
-Fecha: FECHA_EN_FORMATO_LOCALIZADO
-Etiquetas:
- - ETIQUETA 1
- - ETIQUETA 2
- - ETIQUETA 3
+        Gasto correspondiente a DESCRIPCION con valor VALOR €.
+        Fecha: FECHA_EN_FORMATO_LOCALIZADO
+        Etiquetas:
+        - ETIQUETA 1
+        - ETIQUETA 2
+        - ETIQUETA 3
         */
+        resultado += `Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €.\n`
+
+        resultado += `Fecha: ${this.fecha.toLocaleString('es-ES')}\n`
+
+        let concatenarEtiquetas = "Etiquetas:\n";
+        for (let unaEtiqueta of this.etiquetas){
+            concatenarEtiquetas += `- ${unaEtiqueta}\n`
+        }
+
+        resultado += concatenarEtiquetas;
+        return resultado;
     }
 
-    this.actualizarFecha = function(fecha){
-        let fechaSinVerificar = Date.parse(fecha);
+    this.actualizarFecha = function(fechaPasada){
+
+        let fechaLegibleSinVerificar = Date.parse(fechaPasada);
         if (!(isNaN(fechaSinVerificar)))
             { 
-                fecha = fechaSinVerificar;
+                return fechaSinVerificar;
             } 
     }
 
