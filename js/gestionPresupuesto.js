@@ -98,8 +98,33 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
             } 
     }
 
-    this.anyadirEtiquetas = function(){
-        return -1;
+    this.anyadirEtiquetas = function(...nuevasEtiquetas){
+        console.log(nuevasEtiquetas.length)
+        let aIntroducirObjeto = "";
+        for (let etiquetaNueva of nuevasEtiquetas){ // bucle for que recorrerá todo el array de las nuevasEtiquetas
+            //console.log(`etiquetaNueva: ${etiquetaNueva}`) compruebo que es cada etiqueta
+
+            aIntroducirObjeto = this.etiquetas.find( // debe recoger undefined si no está
+                (elemento) => {
+                    //console.log(`Elemento: ${elemento}`) para comprobar el valor que toma cada elemento
+                    return elemento == etiquetaNueva; 
+                })
+            // console.log(`aIntroducirObjeto: ${aIntroducirObjeto}`) para comprobar que es undefined
+
+            // Esta es la clave: si es undefined entra en el array etiquetaNueva (la del bucle)
+            if (aIntroducirObjeto == undefined){
+                this.etiquetas.push(etiquetaNueva);
+            } else {
+                console.log("Sí que está.");
+            }
+
+        }
+            // impresión por consola del resultado en ejecución
+            /*console.log(this.etiquetas.length)
+            for (let etiqu of this.etiquetas){
+                console.log(`- ${etiqu}`);
+            }*/
+
     }
 
     this.borrarEtiquetas = function(){
@@ -107,6 +132,12 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
     }
 
 } // Cierre del objeto
+
+/* Código de ejemplo para ejecutar el método anyadirGasto
+let objeto = new CrearGasto("Coche",23,"10/12/2023","ITV","Gasolina");
+console.log(objeto.descripcion);
+console.log(objeto.anyadirEtiquetas("Impuestos","IVA","ITV","Mecánico", "Gasolina"));
+*/
 
 function listarGastos(){
     return gastos;
