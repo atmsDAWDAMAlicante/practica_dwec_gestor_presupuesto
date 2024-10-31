@@ -89,13 +89,14 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
         return resultado;
     }
 
-    this.actualizarFecha = function(fechaPasada){
-
-        let fechaLegibleSinVerificar = Date.parse(fechaPasada);
-        if (!(isNaN(fechaSinVerificar)))
-            { 
-                return fechaSinVerificar;
-            } 
+    this.actualizarFecha = function(fechaNueva){
+        let fechaSinVerificar = Date.parse(fechaNueva);
+        //let fechaVerificada = !isNaN(fechaSinVerificar) ? fechaSinVerificar : Date.now(); 
+        if (!(isNaN(fechaSinVerificar))){ // Se evalúa en negativo: si la nueva fecha NO es un número timestamp
+            this.fecha = fechaSinVerificar;
+            console.log(this.fecha)
+        }
+        
     }
 
     this.anyadirEtiquetas = function(...nuevasEtiquetas){
@@ -153,7 +154,9 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
 //console.log(objeto.anyadirEtiquetas("Impuestos","IVA","ITV","Mecánico", "Gasolina"));
 //objeto.borrarEtiquetas("Impuestos","ITV","Mecánico", "Gasolina", "ITV")
 
-
+// Código de ejemplo para ejecutar el método actualizarFecha
+//let objeto = new CrearGasto("Casa", 22, "2021-10-06T13:10Z", "Luz", "Agua");
+//console.log(`Fecha no válida: ${objeto.actualizarFecha("Hola")}`);
 
 function listarGastos(){
     return gastos;
@@ -199,38 +202,6 @@ function calcularBalance(){
     let gastosTotales = calcularTotalGastos();
     return (presupuesto - gastosTotales);
 } 
-
-let miGasto1 = new CrearGasto("Hola1", 4,"03/08/02", "una", "dos", "tres");
-let diaHoyTimestamp = Date.now();
-let diaHoyOK = miGasto1.devuelveFechaLegible(new Date(diaHoyTimestamp));
-
-/*
-let miGasto1 = new CrearGasto("Hola1", 4,"03/08/02", "una", "dos", "tres");
-let miGasto2 = new CrearGasto("Hola2", 3,"03/08/02", "una", "dos", "tres");
-let miGasto3 = new CrearGasto("Hola3", 3,"03/08/02", "una", "dos", "tres");
-anyadirGasto(miGasto1);
-anyadirGasto(miGasto2);
-anyadirGasto(miGasto3);
-console.log(calcularTotalGastos());
-
-for (let etiqueta of miGasto1.etiquetas)
-{
-    console.log(etiqueta);
-}
-
-console.log("Mi gasto: " + miGasto2.id)
-borrarGasto(0);
-borrarGasto(2);
-borrarGasto(3);
-
-for (let losGastos of gastos)
-{
-    console.log(losGastos.descripcion)
-}
-
-*/
-
-
 
 
 // NO MODIFICAR A PARTIR DE AQUÍ: exportación de funciones y objetos creados para poder ejecutar los tests.
