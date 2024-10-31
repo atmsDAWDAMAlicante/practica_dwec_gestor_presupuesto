@@ -127,17 +127,33 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
 
     }
 
-    this.borrarEtiquetas = function(){
-        return -1;
+    this.borrarEtiquetas = function(...etiquetasAborrar){
+        // 1º recorrer el array que entra 'etiquetasAborrar'
+        let IndiceDeLaEtiquetaABorrar = ""; // Variable que recoge el índice de la etiqueta a borrar
+        for (let etiquetaAborrar of etiquetasAborrar){ //busco el índice con findIndex
+            IndiceDeLaEtiquetaABorrar = this.etiquetas.findIndex((elemento)=>{
+                return elemento == etiquetaAborrar;
+            });
+            if (IndiceDeLaEtiquetaABorrar >= 0){ // Recordar, importante: o >=0 o >-1
+                console.log(`Voy a borrar: ${this.etiquetas[IndiceDeLaEtiquetaABorrar]}`) // esto me dice qué etiqueta se va a borrar
+                this.etiquetas.splice(IndiceDeLaEtiquetaABorrar,1);
+            }
+
+        } // fin del bucle que recorre el array etiquetasAborrar
+        console.log(`Después del borrado, elementos que quedan: ${this.etiquetas.length}`)
     }
 
 } // Cierre del objeto
 
-/* Código de ejemplo para ejecutar el método anyadirGasto
-let objeto = new CrearGasto("Coche",23,"10/12/2023","ITV","Gasolina");
-console.log(objeto.descripcion);
-console.log(objeto.anyadirEtiquetas("Impuestos","IVA","ITV","Mecánico", "Gasolina"));
-*/
+
+// FUNCIONALIDAD DEL PROGRAMA:
+// Código de ejemplo para ejecutar los métodos anyadirEtiquetas y borrarEtiquetas
+//let objeto = new CrearGasto("Coche",23,"10/12/2023","ITV","Gasolina");
+//console.log(objeto.descripcion);
+//console.log(objeto.anyadirEtiquetas("Impuestos","IVA","ITV","Mecánico", "Gasolina"));
+//objeto.borrarEtiquetas("Impuestos","ITV","Mecánico", "Gasolina", "ITV")
+
+
 
 function listarGastos(){
     return gastos;
