@@ -144,6 +144,19 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
         console.log(`Después del borrado, elementos que quedan: ${this.etiquetas.length}`)
     }
 
+
+
+    this.obtenerPeriodoAgrupacion = function(periodo){
+        let periodoDeAgrupacion
+        //devolverá el período de agrupación correspondiente al 
+        //parámetro periodo de la función y a la fecha del gasto. 
+        
+        /*Si el período a agrupar es dia, el período de agrupación tendrá 
+        el formato aaaa-mm-dd; si es mes, 
+        tendrá el formato aaaa-mm; y si es anyo, tendrá el formato aaaa */
+        return periodoDeAgrupacion;
+    }
+
 } // Cierre del objeto
 
 
@@ -157,6 +170,39 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
 // Código de ejemplo para ejecutar el método actualizarFecha
 //let objeto = new CrearGasto("Casa", 22, "2021-10-06T13:10Z", "Luz", "Agua");
 //console.log(`Fecha no válida: ${objeto.actualizarFecha("Hola")}`);
+
+
+// De la práctica Fundamentos de JS III
+
+function filtrarGastos(a,b,c,d){
+    // recoge objetos
+    // filtrarGastos({etiquetasTiene: ["alimentacion", "gasolina"], fechaHasta: "2020-12-31", valorMaximo: 200});
+    // filter
+    // parametro puede ser:
+    // fechaDesde
+    // fechaHasta
+    // valorMinimo
+    // valorMaximo
+    // descripcionContiene
+    // etiquetasTiene
+
+    // reduce y su resultado es el return
+    return -1;
+}
+
+
+function agruparGastos(periodo,etiquetas,fechaDesde,fechaHasta){
+    // periodo: dia, mes o anyo - por defecto mes
+    // etiquetas: array
+    // fechaDesde string para Date.parse
+    // fechaHasta string para Date.parse
+    // llamar a filtrarGastos
+    // reduce y su resultado es el return
+    return -1;
+}
+
+
+
 
 function listarGastos(){
     return gastos;
@@ -215,5 +261,7 @@ export   {
     anyadirGasto, 
     borrarGasto, 
     calcularTotalGastos,
-    calcularBalance
+    calcularBalance,
+    filtrarGastos,
+    agruparGastos
 }
