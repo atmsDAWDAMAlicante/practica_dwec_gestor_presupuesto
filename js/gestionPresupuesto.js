@@ -147,8 +147,13 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
 
 
     this.obtenerPeriodoAgrupacion = function(periodo){
-        let fechaParaUsar = new Date(this.fecha);
+        let fechaParaUsar = new Date(this.fecha); // conversión del timestamp en fecha para poder utilizar los get-etc()
         let resultadoDeAgrupacion;
+        let anyoOK = fechaParaUsar.getFullYear();
+        // No comprendo esta suma que hay que hacerle al mes
+        let mesOK = (fechaParaUsar.getMonth()<10) ? `0${((fechaParaUsar.getMonth()+1))}` : `${(fechaParaUsar.getMonth()+1)}`;
+        let diaOK = (fechaParaUsar.getDate()<10) ? `0${fechaParaUsar.getDate()}` : `${fechaParaUsar.getDate()}`;
+
         //devolverá el período de agrupación correspondiente al 
         //parámetro periodo de la función y a la fecha del gasto. 
         
@@ -156,17 +161,18 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
         el formato aaaa-mm-dd; si es mes, 
         tendrá el formato aaaa-mm; y si es anyo, tendrá el formato aaaa */
         if (periodo == "anyo"){
-            resultadoDeAgrupacion = `${fechaParaUsar.getFullYear()}`;
+            resultadoDeAgrupacion = `${anyoOK}`;
             return resultadoDeAgrupacion;
         }
 
 
         else if (periodo == "mes"){
-            resultadoDeAgrupacion = `${fechaParaUsar.getFullYear()}-${fechaParaUsar.getMonth()}`;
+            
+            resultadoDeAgrupacion = `${anyoOK}-${mesOK}`;
             return resultadoDeAgrupacion;
         }
         else if (periodo == "dia"){
-            resultadoDeAgrupacion = `${this.fecha.getFullYear()}-${this.fecha.getMonth()}-${this.fecha.getDate()}`;
+            resultadoDeAgrupacion = `${anyoOK}-${mesOK}-${diaOK}`;
             return resultadoDeAgrupacion;
         }
         else{
