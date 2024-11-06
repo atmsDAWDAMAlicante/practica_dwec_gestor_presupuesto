@@ -147,14 +147,32 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
 
 
     this.obtenerPeriodoAgrupacion = function(periodo){
-        let periodoDeAgrupacion
+        let fechaParaUsar = new Date(this.fecha);
+        let resultadoDeAgrupacion;
         //devolverá el período de agrupación correspondiente al 
         //parámetro periodo de la función y a la fecha del gasto. 
         
         /*Si el período a agrupar es dia, el período de agrupación tendrá 
         el formato aaaa-mm-dd; si es mes, 
         tendrá el formato aaaa-mm; y si es anyo, tendrá el formato aaaa */
-        return periodoDeAgrupacion;
+        if (periodo == "anyo"){
+            resultadoDeAgrupacion = `${fechaParaUsar.getFullYear()}`;
+            return resultadoDeAgrupacion;
+        }
+
+
+        else if (periodo == "mes"){
+            resultadoDeAgrupacion = `${fechaParaUsar.getFullYear()}-${fechaParaUsar.getMonth()}`;
+            return resultadoDeAgrupacion;
+        }
+        else if (periodo == "dia"){
+            resultadoDeAgrupacion = `${this.fecha.getFullYear()}-${this.fecha.getMonth()}-${this.fecha.getDate()}`;
+            return resultadoDeAgrupacion;
+        }
+        else{
+            resultadoDeAgrupacion = -1;
+            return resultadoDeAgrupacion;
+        }
     }
 
 } // Cierre del objeto
