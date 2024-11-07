@@ -198,7 +198,7 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
 
 // De la práctica Fundamentos de JS III
 
-function filtrarGastos(a,b,c,d){
+function filtrarGastos(parametroPasado){
     // recoge objetos
     // filtrarGastos({etiquetasTiene: ["alimentacion", "gasolina"], fechaHasta: "2020-12-31", valorMaximo: 200});
     // filter
@@ -211,7 +211,18 @@ function filtrarGastos(a,b,c,d){
     // etiquetasTiene
 
     // reduce y su resultado es el return
-    return -1;
+
+    let resultado=[];
+    //let parametro = parametroPasado.toLowerCase();
+    if (Object.keys(parametroPasado).length === 0) {
+    {
+        resultado = gastos.filter((elemento) => true);
+        console.log(resultado)
+    }
+
+
+    return resultado.length;
+}
 }
 
 
