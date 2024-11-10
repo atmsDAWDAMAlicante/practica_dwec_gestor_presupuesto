@@ -254,7 +254,9 @@ return gastos.filter((elemento) => { // AQUÍ SE ABRE EL FILTER
 
     // parametroPasado pide evaluar: descripcionContiene
     if (parametroPasado.descripcionContiene) {
-
+        let cadaElementoDelFilterEnMinusculas = elemento.descripcion.toLowerCase(); // se pasa a minúsculas cada elemento del Filter
+        let aBuscarMinusculas = parametroPasado.descripcionContiene.toLowerCase(); // se pasa a minúsuclas la descripción del objeto pasado por parámetro
+        resultado.push(cadaElementoDelFilterEnMinusculas.includes(aBuscarMinusculas));
     }
 
 
