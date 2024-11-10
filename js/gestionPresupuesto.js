@@ -210,19 +210,13 @@ function filtrarGastos(parametroPasado){
     // descripcionContiene
     // etiquetasTiene
 
-    // reduce y su resultado es el return
 
-    let resultado=[];
-    //let parametro = parametroPasado.toLowerCase();
-    if (Object.keys(parametroPasado).length === 0) {
-    {
-        resultado = gastos.filter((elemento) => true);
-        console.log(resultado)
-    }
-
-
-    return resultado.length;
+// 1º comprobar si el parámetroPasado tiene algo
+if (Object.keys(parametroPasado).length === 0) {
+    return gastos;// si el parámetro está vacío devuelve el propio objeto "gastos" para que de 6 según el test
 }
+
+
 }
 
 
