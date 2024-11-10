@@ -260,9 +260,20 @@ return gastos.filter((elemento) => { // AQUÍ SE ABRE EL FILTER
     }
 
 
+
+    // AQUÍ HE NECESITADO AYUDA... !!!!!!!!
     // parametroPasado pide evaluar: etiquetasTiene
     if (parametroPasado.etiquetasTiene && parametroPasado.etiquetasTiene.length > 0) {
+        let cadaElementoDelFilterEnMinusculas = elemento.etiquetas.map(etiqueta => etiqueta.toLowerCase());
+        let etiquetasABuscarMinusculas = parametroPasado.etiquetasTiene.map(etiqueta => etiqueta.toLowerCase());
 
+        // MIS INTENTOS FALLIDOS CON UN FILTER ANIDADO, CON MAP Y CON FOREACH
+        //resultado.push(etiquetasABuscarMinusculas.filter(etiqueta => cadaElementoDelFilterEnMinusculas.includes(etiqueta)));
+        //resultado.push(etiquetasABuscarMinusculas.map(etiqueta => cadaElementoDelFilterEnMinusculas.includes(etiqueta)));
+        //resultado.push(etiquetasABuscarMinusculas.forEach(etiqueta => cadaElementoDelFilterEnMinusculas.includes(etiqueta)));
+
+        // AYUDA EXTERNA... !!!!!!!!!! MÉTODO SOME
+        resultado.push(etiquetasABuscarMinusculas.some(etiqueta => cadaElementoDelFilterEnMinusculas.includes(etiqueta)));
     }
 
 
