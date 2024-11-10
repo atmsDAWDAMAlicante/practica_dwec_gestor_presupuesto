@@ -210,13 +210,63 @@ function filtrarGastos(parametroPasado){
     // descripcionContiene
     // etiquetasTiene
 
-
+// parametroPasado ES UN OBJETO
 // 1º comprobar si el parámetroPasado tiene algo
 if (Object.keys(parametroPasado).length === 0) {
     return gastos;// si el parámetro está vacío devuelve el propio objeto "gastos" para que de 6 según el test
 }
+//2º EL FILTER
+// se devuelve el resultado del filter que ES UN ARRAY
+// lo que evalúa el test es la longitud del arary que se devuelve assert.lengthOf(filtrarGastos({}), 6,
+return gastos.filter((elemento) => { // AQUÍ SE ABRE EL FILTER
+    let resultado=[]; // el array que se va a devolver
+
+    // En cada vuelta del filter se evalúa un elemento
+
+    // parametroPasado pide evaluar: fechaDesde
+    if (parametroPasado.fechaDesde) {
+        let fechaDesde = Date.parse(parametroPasado.fechaDesde);
+        if (!isNaN(fechaDesde)) {
+            resultado.push(elemento.fecha >= fechaDesde);
+        }
+    }
+
+    // parametroPasado pide evaluar: fechaHasta
+    if (parametroPasado.fechaHasta) {
+        let fechaHasta = Date.parse(parametroPasado.fechaHasta);
+        if (!isNaN(fechaHasta)) {
+            resultado.push(elemento.fecha <= fechaHasta);
+        }
+    }
 
 
+    // parametroPasado pide evaluar: valorMinimo
+    if (parametroPasado.valorMinimo !== undefined) {
+
+    }
+
+
+    // parametroPasado pide evaluar: valorMaximo
+    if (parametroPasado.valorMaximo !== undefined) {
+
+
+    }
+
+
+    // parametroPasado pide evaluar: descripcionContiene
+    if (parametroPasado.descripcionContiene) {
+
+    }
+
+
+    // parametroPasado pide evaluar: etiquetasTiene
+    if (parametroPasado.etiquetasTiene && parametroPasado.etiquetasTiene.length > 0) {
+
+    }
+
+
+return  resultado.every(valor => valor === true); // se devuelve el array cuya longitud evalúa el test
+}); // AQUÍ SE CIERRA EL FILTER
 }
 
 
