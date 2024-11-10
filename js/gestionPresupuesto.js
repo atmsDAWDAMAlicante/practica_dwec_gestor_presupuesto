@@ -242,14 +242,13 @@ return gastos.filter((elemento) => { // AQUÍ SE ABRE EL FILTER
 
     // parametroPasado pide evaluar: valorMinimo
     if (parametroPasado.valorMinimo !== undefined) {
-
+        resultado.push(elemento.valor >= parametroPasado.valorMinimo);
     }
 
 
     // parametroPasado pide evaluar: valorMaximo
     if (parametroPasado.valorMaximo !== undefined) {
-
-
+        resultado.push(elemento.valor <= parametroPasado.valorMaximo);
     }
 
 
