@@ -1,9 +1,9 @@
-/*import * as miModulo from "./gestionPresupuesto.js"
-alert("Hola")
+import * as miModulo from "./gestionPresupuesto.js"
+
 function mostrarDatoEnId(){
     let coche = new miModulo.CrearGasto("Coche",4,"2021/02/01","ITV")
-    alert(coche.valor)
-}*/
+    alert(coche.descripcion)
+}
 
 function mostrarGastoWeb(){
     return
@@ -12,11 +12,11 @@ function mostrarGastoWeb(){
 function mostrarGastosAgrupadosWeb(){
     return
 }
-const boton = document.querySelector("#boton");
+const boton = document.querySelector("#boton");/*
 boton.addEventListener("click",function(){
     alert("Hola");
-})
-
+})*/
+boton.addEventListener("click",mostrarDatoEnId);
 
 /*
 export {
