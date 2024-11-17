@@ -282,15 +282,60 @@ return  resultado.every(valor => valor === true); // se devuelve el array cuya l
 }
 
 
-function agruparGastos(periodo,etiquetas,fechaDesde,fechaHasta){
-    // periodo: dia, mes o anyo - por defecto mes
-    // etiquetas: array
-    // fechaDesde string para Date.parse
-    // fechaHasta string para Date.parse
-    // llamar a filtrarGastos
-    // reduce y su resultado es el return
-    return -1;
+
+/*
+
+//function agruparGastos(periodo,etiquetas,fechaDesde,fechaHasta){
+    function agruparGastos(periodo = "mes", etiquetas = [], fechaDesde = null, fechaHasta = null) {
+        
+
+// Filtrar gastos según parámetros
+const gastosFiltrados = filtrarGastos(gastos, etiquetas, fechaDesde, fechaHasta);
+
+// Usar reduce para agrupar los gastos
+const resultado = gastosFiltrados.reduce((acc, gasto) => {
+    // Obtener el período de agrupación
+    const clavePeriodo = gasto.obtenerPeriodoAgrupacion(periodo);
+    
+    // Sumar el valor del gasto al acumulador correspondiente
+    if (!acc[clavePeriodo]) {
+        acc[clavePeriodo] = 0;
+    }
+    acc[clavePeriodo] += gasto.valor;
+
+    return acc;
+}, {});
+
+return resultado;
 }
+*/
+
+// NI UTILIZANDO EL EJEMPLO DEL LIBRO ME FUNCIONA
+
+function agruparGastos(periodo, etiquetas, fechaDesde, fechaHasta) {
+    let gastos_fil = filtrarGastos({etiquetasTiene: etiquetas, fechaDesde: fechaDesde, fechaHasta: fechaHasta});
+
+    // Función 'reduce'. Valor inicial del acumulador: objeto vacío
+    // El acumulador será el objeto que pide el enunciado
+    return gastos_fil.reduce(function(acc, gasto) {
+
+	// Obtenemos período de agrupación del gasto
+        let per = gasto.obtenerPeriodoAgrupacion(periodo);
+
+	// Comprobamos si existe en el acumulador una entrada para el período de agrupación actual
+	if (acc[per]) {
+	    // Si existe, le sumamos el valor del gasto actual
+	    acc[per] = acc[per] + gasto.valor;
+	} else {
+	    // Si no existe, la creamos con el valor del gasto actual
+	    acc[per] = gasto.valor;
+	}
+	// Devolvemos el acumulador
+        return acc;
+    }, {})
+
+}
+
 
 
 
