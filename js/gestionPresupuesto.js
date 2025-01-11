@@ -151,7 +151,9 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
         let resultadoDeAgrupacion;
         let anyoOK = fechaParaUsar.getFullYear();
         // No comprendo esta suma que hay que hacerle al mes
-        let mesOK = (fechaParaUsar.getMonth()<10) ? `0${((fechaParaUsar.getMonth()+1))}` : `${(fechaParaUsar.getMonth()+1)}`;
+        //let mesOK = (fechaParaUsar.getMonth()<10) ? `0${((fechaParaUsar.getMonth()+1))}` : `${(fechaParaUsar.getMonth()+1)}`;
+        let mesPrevio = fechaParaUsar.getMonth() + 1;
+        let mesOK = (mesPrevio < 10) ? `0${mesPrevio}` : `${mesPrevio}`;
         let diaOK = (fechaParaUsar.getDate()<10) ? `0${fechaParaUsar.getDate()}` : `${fechaParaUsar.getDate()}`;
 
         //devolverá el período de agrupación correspondiente al 
