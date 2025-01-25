@@ -1,7 +1,5 @@
-import * as moduloGestionPresupuesto from './gestionPresupuesto.js';
-import * as moduloGestionPresupuestoWeb from './gestionPresupuestoWeb.js';
-//import * as moduloGestionPresupuestoWeb from './gestionPresupuestoWeb.js';
+import * as gestionPresupuesto from './gestionPresupuesto.js';
+import * as gestionPresupuestoWeb from './gestionPresupuestoWeb.js';
 
-moduloGestionPresupuesto.actualizarPresupuesto("1500");
-console.log(moduloGestionPresupuesto.mostrarPresupuesto())
-moduloGestionPresupuesto.mostrarPresupuesto();
+// Actualiza el presupuesto a 1500€
+gestionPresupuesto.actualizarPresupuesto(1500);
