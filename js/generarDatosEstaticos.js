@@ -23,3 +23,13 @@ gestionPresupuesto.anyadirGasto(gasto3);
 gestionPresupuesto.anyadirGasto(gasto4);
 gestionPresupuesto.anyadirGasto(gasto5);
 gestionPresupuesto.anyadirGasto(gasto6); 
+
+// 5º Mostrar los gastos totales en div#gastos-totales (funciones calcularTotalGastos y mostrarDatoEnId)
+// 6º Mostrar el balance total en div#balance-total (funciones calcularBalance y mostrarDatoEnId)
+
+const totalGastos = gestionPresupuesto.calcularTotalGastos();
+const balanceTotal = gestionPresupuesto.calcularBalance();
+
+gestionPresupuestoWeb.mostrarDatoEnId('gastos-totales', totalGastos);
+gestionPresupuestoWeb.mostrarDatoEnId('balance-total', balanceTotal);
+
