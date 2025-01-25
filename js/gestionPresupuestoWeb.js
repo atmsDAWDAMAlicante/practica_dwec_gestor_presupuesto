@@ -63,7 +63,47 @@ function mostrarGastoWeb(idElemento, gasto){
 }
 
 function mostrarGastosAgrupadosWeb(idElemento, agrup, periodo){
-    return
+    let contenedor = document.getElementById(idElemento);
+
+ // Crear el div principal con la clase 'agrupacion'
+ let divAgrupacion = document.createElement("div");
+ divAgrupacion.classList.add("agrupacion");
+
+ // Crear el título con el período correspondiente
+ let titulo = document.createElement("h1");
+ titulo.textContent = `Gastos agrupados por ${periodo}`;
+ divAgrupacion.appendChild(titulo);
+
+ // Recorrer el objeto 'agrup' para crear los elementos clave-valor
+ for (let clave in agrup) {
+     if (agrup.hasOwnProperty(clave)) {
+         // Crear el div contenedor de cada dato
+         let divDato = document.createElement("div");
+         divDato.classList.add("agrupacion-dato");
+
+         // Crear el span para la clave (nombre de la propiedad)
+         let spanClave = document.createElement("span");
+         spanClave.classList.add("agrupacion-dato-clave");
+         spanClave.textContent = clave;
+
+         // Crear el span para el valor (cantidad de gastos)
+         let spanValor = document.createElement("span");
+         spanValor.classList.add("agrupacion-dato-valor");
+         spanValor.textContent = agrup[clave];
+
+         // Añadir clave y valor al div dato
+         divDato.appendChild(spanClave);
+         divDato.appendChild(spanValor);
+
+         // Añadir el div dato a la agrupación principal
+         divAgrupacion.appendChild(divDato);
+     }
+ }
+
+ // Limpiar contenido anterior y agregar la nueva estructura
+ contenedor.innerHTML = "";
+ contenedor.appendChild(divAgrupacion);
+
 }
 
 
