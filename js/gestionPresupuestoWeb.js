@@ -111,18 +111,6 @@ function mostrarGastosAgrupadosWeb(idElemento, agrup, periodo){
 }
 
 
-const boton = document.querySelector("#boton");
-boton.addEventListener("click",function(){
-
-    mostrarDatoEnId();
-});
-/*
-const boton = document.querySelector("#boton");
-boton.addEventListener("click",function(){
-let coche = new miModulo.CrearGasto("Coche",4,"2021/02/01","ITV")
-    alert(coche.descripcion)
-});
-*/
 
 export {
     
