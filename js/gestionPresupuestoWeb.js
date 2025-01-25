@@ -7,7 +7,7 @@ let coche = new miModulo.CrearGasto("Coche",4,"2021/02/01","ITV")
 function mostrarDatoEnId(idElemento, valor){
     
     let elemento = document.getElementById(idElemento);
-    elemento.innerHTML = valor;
+    return elemento.textContent = valor;
 }
 
 function mostrarGastoWeb(idElemento, gasto){
@@ -58,30 +58,30 @@ function mostrarGastoWeb(idElemento, gasto){
     divGranGasto.appendChild(divValor);
     divGranGasto.appendChild(divEtiquetas);
 
-    // Insertar el nuevo elemento en el contenedor
+    // Insertar el div principal en el contenedor
     contenedor.appendChild(divGranGasto);
 }
 
 function mostrarGastosAgrupadosWeb(idElemento, agrup, periodo){
     let contenedor = document.getElementById(idElemento);
 
- // Crear el div principal con la clase 'agrupacion'
+ // Div principal con la clase 'agrupacion'
  let divAgrupacion = document.createElement("div");
  divAgrupacion.classList.add("agrupacion");
 
- // Crear el título con el período correspondiente
+ // Título con período 
  let titulo = document.createElement("h1");
  titulo.textContent = `Gastos agrupados por ${periodo}`;
  divAgrupacion.appendChild(titulo);
 
- // Recorrer el objeto 'agrup' para crear los elementos clave-valor
+ // Bucle para recorrer el objeto 'agrup' para crear los elementos clave-valor
  for (let clave in agrup) {
      if (agrup.hasOwnProperty(clave)) {
-         // Crear el div contenedor de cada dato
+         // Div contenedor de cada dato
          let divDato = document.createElement("div");
          divDato.classList.add("agrupacion-dato");
 
-         // Crear el span para la clave (nombre de la propiedad)
+         // span para la clave (nombre de la propiedad)
          let spanClave = document.createElement("span");
          spanClave.classList.add("agrupacion-dato-clave");
          spanClave.textContent = clave;
@@ -91,16 +91,20 @@ function mostrarGastosAgrupadosWeb(idElemento, agrup, periodo){
          spanValor.classList.add("agrupacion-dato-valor");
          spanValor.textContent = agrup[clave];
 
-         // Añadir clave y valor al div dato
+        //Al final: añadir todo
+
+        // Añadir todos los elementos al divDato
          divDato.appendChild(spanClave);
          divDato.appendChild(spanValor);
 
-         // Añadir el div dato a la agrupación principal
+         // Añadir el divDato a la agrupación principal divAgrupacion
          divAgrupacion.appendChild(divDato);
      }
- }
+ } // ojo, esto está cerrando el bucle clave in agrup
 
- // Limpiar contenido anterior y agregar la nueva estructura
+ // ULTIMO PASO: EL CONTENEDOR: 
+ // a) Limpiar contenido anterior
+ // b) agregar el nuevo divAgrupacion al contenedor
  contenedor.innerHTML = "";
  contenedor.appendChild(divAgrupacion);
 
