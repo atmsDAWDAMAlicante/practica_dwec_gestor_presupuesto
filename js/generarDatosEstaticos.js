@@ -33,3 +33,42 @@ const balanceTotal = gestionPresupuesto.calcularBalance();
 gestionPresupuestoWeb.mostrarDatoEnId('gastos-totales', totalGastos);
 gestionPresupuestoWeb.mostrarDatoEnId('balance-total', balanceTotal);
 
+// 7º Mostrar el listado completo de gastos en div#listado-gastos-completo (funciones listarGastos y mostrarGastoWeb)
+const listadoGastos = gestionPresupuesto.listarGastos();
+listadoGastos.forEach((gasto) =>{
+    gestionPresupuestoWeb.mostrarGastoWeb('listado-gastos-completo', gasto); 
+})
+
+
+// 8º Mostrar el listado de gastos realizados en septiembre de 2021 en div#listado-gastos-filtrado-1 (funciones filtrarGastos y mostrarGastoWeb)
+
+
+
+// 9º Mostrar el listado de gastos de más de 50€ en div#listado-gastos-filtrado-2 (funciones filtrarGastos y mostrarGastoWeb)
+
+
+
+// 10º Mostrar el listado de gastos de más de 200€ con etiqueta seguros en div#listado-gastos-filtrado-3 (funciones filtrarGastos y mostrarGastoWeb)
+
+
+// 11º Mostrar el listado de gastos que tengan las etiquetas comida o transporte de menos de 50€ en div#listado-gastos-filtrado-4 (funciones filtrarGastos y mostrarGastoWeb)
+
+
+// 12º Mostrar el total de gastos agrupados por día en div#agrupacion-dia (funciones agruparGastos y mostrarGastosAgrupadosWeb)
+
+
+// 13º Mostrar el total de gastos agrupados por mes en div#agrupacion-mes (funciones agruparGastos y mostrarGastosAgrupadosWeb)
+
+
+
+// 14º Mostrar el total de gastos agrupados por año en div#agrupacion-anyo (funciones agruparGastos y mostrarGastosAgrupadosWeb)
+
+
+
+
+
+
+
+
+
+export * from './generarDatosEstaticos.js';
