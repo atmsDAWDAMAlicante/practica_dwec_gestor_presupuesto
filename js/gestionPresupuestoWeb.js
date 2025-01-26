@@ -139,10 +139,12 @@ function repintar(){
 
 
 function actualizarPresupuestoWeb(){
-    let entrada = prompt();
+    let presupuesto = parseFloat(prompt("Introduce un nuevo presupuesto"));
+    miModulo.actualizarPresupuesto(presupuesto)
     repintar();
 }
-
+const actualizarpresupuesto = document.querySelector("#actualizarpresupuesto");
+actualizarpresupuesto.addEventListener("click",actualizarPresupuestoWeb)
 
 
 
@@ -153,5 +155,5 @@ export {
     mostrarGastosAgrupadosWeb,
     repintar, 
     actualizarPresupuestoWeb
-    
+
 }
