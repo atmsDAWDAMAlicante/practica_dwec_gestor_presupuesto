@@ -138,7 +138,10 @@ function repintar(){
 } // Cierre de la función repintar
 
 
-
+function actualizarPresupuestoWeb(){
+    let entrada = prompt();
+    repintar();
+}
 
 
 
@@ -147,6 +150,8 @@ export {
     
     mostrarDatoEnId,
     mostrarGastoWeb,
-    mostrarGastosAgrupadosWeb
-
+    mostrarGastosAgrupadosWeb,
+    repintar, 
+    actualizarPresupuestoWeb
+    
 }
