@@ -59,13 +59,19 @@ gastosMasDe50Euros.forEach((gasto) => {
 // 10º Mostrar el listado de gastos de más de 200€ con etiqueta seguros en div#listado-gastos-filtrado-3 (funciones filtrarGastos y mostrarGastoWeb)
 
 
-const gastosSegurosMasDe200Euros = gestionPresupuesto.filtrarGastos({ etiquetasTiene: ['seguros'], valorMinimo: 200 });
+const gastosSegurosMasDe200Euros = gestionPresupuesto.filtrarGastos({ conLaEtiqueta: ['seguros'], valorMinimo: 200 });
 gastosSegurosMasDe200Euros.forEach((gasto) => {
     const elementoId = 'listado-gastos-filtrado-3';
     gestionPresupuestoWeb.mostrarGastoWeb(elementoId,gasto); 
 }); 
 
 // 11º Mostrar el listado de gastos que tengan las etiquetas comida o transporte de menos de 50€ en div#listado-gastos-filtrado-4 (funciones filtrarGastos y mostrarGastoWeb)
+
+const gastosComidaTransporteMenosDe50Euros = gestionPresupuesto.filtrarGastos({ conLaEtiqueta: ['comida', 'transporte'], valorMaximo: 50 });
+gastosComidaTransporteMenosDe50Euros.forEach((gasto) => {
+    const elementoId = 'listado-gastos-filtrado-4';
+    gestionPresupuestoWeb.mostrarGastoWeb(elementoId, gasto ); 
+}); 
 
 
 // 12º Mostrar el total de gastos agrupados por día en div#agrupacion-dia (funciones agruparGastos y mostrarGastosAgrupadosWeb)
