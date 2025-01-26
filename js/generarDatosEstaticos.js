@@ -76,14 +76,18 @@ gastosComidaTransporteMenosDe50Euros.forEach((gasto) => {
 
 // 12º Mostrar el total de gastos agrupados por día en div#agrupacion-dia (funciones agruparGastos y mostrarGastosAgrupadosWeb)
 
+const TotalDeGastosAgrupadosPorDia = gestionPresupuesto.agruparGastos('dia');
+gestionPresupuestoWeb.mostrarGastosAgrupadosWeb('agrupacion-dia', TotalDeGastosAgrupadosPorDia, 'día');
 
 // 13º Mostrar el total de gastos agrupados por mes en div#agrupacion-mes (funciones agruparGastos y mostrarGastosAgrupadosWeb)
 
-
+const TotalDeGastosAgrupadosPorMes = gestionPresupuesto.agruparGastos('mes');
+gestionPresupuestoWeb.mostrarGastosAgrupadosWeb('agrupacion-mes', TotalDeGastosAgrupadosPorMes, 'mes');
 
 // 14º Mostrar el total de gastos agrupados por año en div#agrupacion-anyo (funciones agruparGastos y mostrarGastosAgrupadosWeb)
 
-
+const TotalDeGastosAgrupadosPorAnyo = gestionPresupuesto.agruparGastos('anyo');
+gestionPresupuestoWeb.mostrarGastosAgrupadosWeb('agrupacion-anyo', TotalDeGastosAgrupadosPorAnyo, 'año');
 
 
 
