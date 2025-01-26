@@ -50,7 +50,11 @@ gastosDeSeptiembre2021.forEach((gasto) => {
 
 // 9º Mostrar el listado de gastos de más de 50€ en div#listado-gastos-filtrado-2 (funciones filtrarGastos y mostrarGastoWeb)
 
-
+const gastosMasDe50Euros = gestionPresupuesto.filtrarGastos({ valorMinimo: 50 });
+gastosMasDe50Euros.forEach((gasto) => {
+    const elementoId = 'listado-gastos-filtrado-2';
+    gestionPresupuestoWeb.mostrarGastoWeb(elementoId, gasto);
+  });
 
 // 10º Mostrar el listado de gastos de más de 200€ con etiqueta seguros en div#listado-gastos-filtrado-3 (funciones filtrarGastos y mostrarGastoWeb)
 
