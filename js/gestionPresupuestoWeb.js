@@ -144,8 +144,18 @@ function actualizarPresupuestoWeb(){
     repintar();
 }
 const actualizarpresupuesto = document.querySelector("#actualizarpresupuesto");
-actualizarpresupuesto.addEventListener("click",actualizarPresupuestoWeb)
+actualizarpresupuesto.addEventListener("click",actualizarPresupuestoWeb);
 
+function nuevoGastoWeb(){
+
+    // aquí va un prompt a lo grande
+
+    // hay que crear un objeto gasto
+
+    repintar();
+}
+const anyadirgasto = document.querySelector("#anyadirgasto");
+anyadirgasto.addEventListener("click",nuevoGastoWeb);
 
 
 export {
