@@ -111,6 +111,37 @@ function mostrarGastosAgrupadosWeb(idElemento, agrup, periodo){
 }
 
 
+// FUNCIONES QUE SE AÑADEN CON EL EJERCICIO "EVENTOS"
+
+function repintar(){
+
+// 1º repintar: Mostrar el presupuesto en div#presupuesto 
+// (funciones mostrarPresupuesto y mostrarDatoEnId)
+
+// Mostrar los gastos totales en div#gastos-totales 
+// (funciones calcularTotalGastos y mostrarDatoEnId)
+
+
+// 3º repintar: Mostrar el balance total en div#balance-total 
+// (funciones calcularBalance y mostrarDatoEnId)
+
+// 4º repintar: Borrar el contenido de div#listado-gastos-completo, 
+// para que el paso siguiente no duplique la información. INNERHTML
+
+// 5º repintar: Mostrar el listado completo de gastos en div#listado-gastos-completo 
+// (funciones listarGastos y mostrarGastoWeb)
+
+
+
+
+    return;
+} // Cierre de la función repintar
+
+
+
+
+
+
 
 export {
     
