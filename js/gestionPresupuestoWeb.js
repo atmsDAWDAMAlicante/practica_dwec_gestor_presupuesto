@@ -158,12 +158,32 @@ const anyadirgasto = document.querySelector("#anyadirgasto");
 anyadirgasto.addEventListener("click",nuevoGastoWeb);
 
 
+function EditarHandle(){ // A VER ESTO QUE ES UNA FUNCIÓN CONSTRUCTORA
+    return;
+}
+
+function BorrarHandle(){ // A VER ESTO QUE ES UNA FUNCIÓN CONSTRUCTORA
+    return;
+}
+
+function BorrarEtiquetasHandle(){ // A VER ESTO QUE ES UNA FUNCIÓN CONSTRUCTORA
+    return;
+}
+
+
+// LLEGADO AQUÍ, HAY QUE Modificación de la función mostrarGastoWeb
+
+
 export {
     
     mostrarDatoEnId,
     mostrarGastoWeb,
     mostrarGastosAgrupadosWeb,
     repintar, 
-    actualizarPresupuestoWeb
+    actualizarPresupuestoWeb,
+    nuevoGastoWeb,
+    EditarHandle,
+    BorrarHandle,
+    BorrarEtiquetasHandle
 
 }
