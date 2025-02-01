@@ -118,6 +118,9 @@ function repintar(){
 // 1º repintar: Mostrar el presupuesto en div#presupuesto 
 // (funciones mostrarPresupuesto y mostrarDatoEnId)
 
+const presupuesto = miModulo.mostrarPresupuesto();
+  mostrarDatoEnId('presupuesto', presupuesto);
+
 // Mostrar los gastos totales en div#gastos-totales 
 // (funciones calcularTotalGastos y mostrarDatoEnId)
 
