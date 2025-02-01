@@ -126,10 +126,16 @@ const presupuesto = miModulo.mostrarPresupuesto();
 // Esta operación, en principio no se refleja en el test
 const gastosTotales = miModulo.calcularTotalGastos();
 mostrarDatoEnId('gastos-totales', gastosTotales);
-
+console.log(gastosTotales); // para ver por consola que se ejecuta, pero no se actualiza porque
+// aún no se ha modificado ningún gasto/dato
 
 // 3º repintar: Mostrar el balance total en div#balance-total 
 // (funciones calcularBalance y mostrarDatoEnId)
+// Esta operación, en principio no se refleja en el test
+const balanceTotal = miModulo.calcularBalance();
+mostrarDatoEnId('balance-total', balanceTotal);
+console.log(balanceTotal); // para ver por consola que se ejecuta, pero no se actualiza porque
+// aún no se ha modificado ningún gasto/dato
 
 // 4º repintar: Borrar el contenido de div#listado-gastos-completo, 
 // para que el paso siguiente no duplique la información. INNERHTML
