@@ -140,9 +140,12 @@ console.log(balanceTotal); // para ver por consola que se ejecuta, pero no se ac
 // 4º repintar: Borrar el contenido de div#listado-gastos-completo, 
 // para que el paso siguiente no duplique la información. INNERHTML
 
+let listadoGastsoCompleto = document.getElementById('listado-gastos-completo'); 
+listadoGastsoCompleto.innerHTML = ""; 
+
 // 5º repintar: Mostrar el listado completo de gastos en div#listado-gastos-completo 
 // (funciones listarGastos y mostrarGastoWeb)
-
+listadoGastsoCompleto = miModulo.listarGastos();
 
 
 
