@@ -145,11 +145,15 @@ listadoGastsoCompleto.innerHTML = "";
 
 // 5º repintar: Mostrar el listado completo de gastos en div#listado-gastos-completo 
 // (funciones listarGastos y mostrarGastoWeb)
-listadoGastsoCompleto = miModulo.listarGastos();
+listadoGastsoCompleto = miModulo.listarGastos(); // Listar gastos devuelve un array que
+// se ha ido llenando con anyadirGasto(gasto) push... en la siguiente línea se itera un bucle
+listadoGastsoCompleto.forEach((cadaGasto) => {
+    mostrarGastoWeb('listado-gastos-completo', cadaGasto);
+    console.log(cadaGasto); // esto mostrará por consola los objetos que en el HTML se muestran en el listado
+ });
 
 
-
-    return;
+    return;// Este return no tengo muy claro que hace aquí
 } // Cierre de la función repintar
 
 
