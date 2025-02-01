@@ -157,6 +157,8 @@ listadoGastsoCompleto.forEach((cadaGasto) => {
 } // Cierre de la función repintar
 
 
+// ESTA YA LA HABÍA HECHO LA PRIMERA
+
 function actualizarPresupuestoWeb(){
     let presupuesto = parseFloat(prompt("Introduce un nuevo presupuesto"));
     miModulo.actualizarPresupuesto(presupuesto)
@@ -165,12 +167,27 @@ function actualizarPresupuestoWeb(){
 const actualizarpresupuesto = document.querySelector("#actualizarpresupuesto");
 actualizarpresupuesto.addEventListener("click",actualizarPresupuestoWeb);
 
+
+
+// FUNCIÓN QUE YA INTERVIENE EN EL TEST
+// Función nuevoGastoWeb y botón anyadirgasto
+
 function nuevoGastoWeb(){
 
     // aquí va un prompt a lo grande
+    let descripcion = prompt("Introduce la descripción: ", ''); 
+    let cantidad = parseFloat(prompt("Introduce la cantidad: "));
+    let fecha = prompt ("Introduce la fecha en formato AAAA-MM-DD: ", '2023-11-08'); 
+    let etiquetas = prompt('Introduce etiquetas separadas por comas: ', 'casa, seguro'); 
+    let arrEtiquetas = etiquetas.split(', '); 
 
+    
     // hay que crear un objeto gasto
 
+    let nuevoGasto = new miModulo.CrearGasto(descripcion, cantidad, fecha, arrEtiquetas); 
+    miModulo.anyadirGasto(nuevoGasto); // esto lo añade al array de objetos
+    // ESTA LÍNEA DE ABAJO ES DE MI COSECHA PARA RECORDAR CÓMO SE ITERAN LOS OBJETOS
+    for (let i in miModulo.gastos){console.log(miModulo.gastos[i]["descripcion"])}
     repintar();
 }
 const anyadirgasto = document.querySelector("#anyadirgasto");
