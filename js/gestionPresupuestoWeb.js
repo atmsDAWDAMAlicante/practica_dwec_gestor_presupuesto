@@ -4,7 +4,7 @@ let coche = new miModulo.CrearGasto("Coche",4,"2021/02/01","ITV")
 //const idElemento = document.querySelector("#idElemento");
 //const valor = document.querySelector("#valor");
 
-function mostrarDatoEnId(idElemento, valor){
+function mostrarDatoEnId(idElemento, valor){ // Se invoca en el nº 1 de la función repintar
     
     let elemento = document.getElementById(idElemento);
     return elemento.textContent = valor;
@@ -119,10 +119,13 @@ function repintar(){
 // (funciones mostrarPresupuesto y mostrarDatoEnId)
 
 const presupuesto = miModulo.mostrarPresupuesto();
-  mostrarDatoEnId('presupuesto', presupuesto);
+  mostrarDatoEnId('presupuesto', presupuesto); // esta función está más arriba
 
-// Mostrar los gastos totales en div#gastos-totales 
+// 2º Mostrar los gastos totales en div#gastos-totales
 // (funciones calcularTotalGastos y mostrarDatoEnId)
+// Esta operación, en principio no se refleja en el test
+const gastosTotales = miModulo.calcularTotalGastos();
+mostrarDatoEnId('gastos-totales', gastosTotales);
 
 
 // 3º repintar: Mostrar el balance total en div#balance-total 
