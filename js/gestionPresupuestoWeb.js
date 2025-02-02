@@ -194,8 +194,10 @@ const anyadirgasto = document.querySelector("#anyadirgasto");
 anyadirgasto.addEventListener("click",nuevoGastoWeb);
 
 
-function EditarHandle(){ // A VER ESTO QUE ES UNA FUNCIÓN CONSTRUCTORA
-    return;
+function EditarHandle(gasto){ // A VER ESTO QUE ES UNA FUNCIÓN CONSTRUCTORA
+    // Recibe el gasto para el objeto manejador
+    // Esto es un gasto concreto
+    this.gasto = gasto;
 }
 
 function BorrarHandle(){ // A VER ESTO QUE ES UNA FUNCIÓN CONSTRUCTORA
