@@ -175,10 +175,10 @@ actualizarpresupuesto.addEventListener("click",actualizarPresupuestoWeb);
 function nuevoGastoWeb(){
 
     // aquí va un prompt a lo grande
-    let descripcion = prompt("Introduce la descripción: ", ''); 
+    let descripcion = prompt("Introduce la descripción: "); 
     let cantidad = parseFloat(prompt("Introduce la cantidad: "));
-    let fecha = prompt ("Introduce la fecha en formato AAAA-MM-DD: ", '2023-11-08'); 
-    let etiquetas = prompt('Introduce etiquetas separadas por comas: ', 'casa, seguro'); 
+    let fecha = prompt ("Introduce la fecha en formato AAAA-MM-DD: "); 
+    let etiquetas = prompt('Introduce etiquetas separadas por comas: '); 
     let arrEtiquetas = etiquetas.split(', '); 
 
     
