@@ -201,8 +201,11 @@ function EditarHandle(gasto){ // A VER ESTO QUE ES UNA FUNCIÓN CONSTRUCTORA
 
     // TRES TAREAS
 
-    // 1º PROMPTS que recogen los datos editados
-
+    // 1º PROMPTS que recogen los datos editados: ME VALEN LOS DE nuevoGastoWeb()
+    let descripcion = prompt("Introduce la descripción: "); 
+    let cantidad = parseFloat(prompt("Introduce la cantidad: "));
+    let fecha = prompt ("Introduce la fecha en formato AAAA-MM-DD: "); 
+    let etiquetas = prompt('Introduce etiquetas separadas por comas: '); 
 
 
 
