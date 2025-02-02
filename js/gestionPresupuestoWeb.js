@@ -198,6 +198,22 @@ function EditarHandle(gasto){ // A VER ESTO QUE ES UNA FUNCIÓN CONSTRUCTORA
     // Recibe el gasto para el objeto manejador
     // Esto es un gasto concreto
     this.gasto = gasto;
+
+    // TRES TAREAS
+
+    // 1º PROMPTS que recogen los datos editados
+
+
+
+
+    // 2º ACTUALIZACIÓN de los datos
+
+
+
+    // 3º REPINTAR
+    repintar();
+
+
 }
 
 function BorrarHandle(){ // A VER ESTO QUE ES UNA FUNCIÓN CONSTRUCTORA
