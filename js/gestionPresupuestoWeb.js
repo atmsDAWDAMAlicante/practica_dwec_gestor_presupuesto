@@ -179,12 +179,12 @@ function nuevoGastoWeb(){
     let cantidad = parseFloat(prompt("Introduce la cantidad: "));
     let fecha = prompt ("Introduce la fecha en formato AAAA-MM-DD: "); 
     let etiquetas = prompt('Introduce etiquetas separadas por comas: '); 
-    let arrEtiquetas = etiquetas.split(', '); 
+    let arrayEtiquetas = etiquetas.split(', '); 
 
     
     // hay que crear un objeto gasto
 
-    let nuevoGasto = new miModulo.CrearGasto(descripcion, cantidad, fecha, arrEtiquetas); 
+    let nuevoGasto = new miModulo.CrearGasto(descripcion, cantidad, fecha, arrayEtiquetas); 
     miModulo.anyadirGasto(nuevoGasto); // esto lo añade al array de objetos
     // ESTA LÍNEA DE ABAJO ES DE MI COSECHA PARA RECORDAR CÓMO SE ITERAN LOS OBJETOS
     for (let i in miModulo.gastos){console.log(miModulo.gastos[i]["descripcion"])}
@@ -205,11 +205,19 @@ function EditarHandle(gasto){ // A VER ESTO QUE ES UNA FUNCIÓN CONSTRUCTORA
     let descripcion = prompt("Introduce la descripción: "); 
     let cantidad = parseFloat(prompt("Introduce la cantidad: "));
     let fecha = prompt ("Introduce la fecha en formato AAAA-MM-DD: "); 
-    let etiquetas = prompt('Introduce etiquetas separadas por comas: '); 
+    let etiquetasArray = prompt('Introduce etiquetas separadas por comas: '); 
 
 
 
-    // 2º ACTUALIZACIÓN de los datos
+    // 2º ACTUALIZACIÓN de los datos: AQUÍ SE UTILIZARÁN LAS FUNCIONES DE LA FUNCIÓN CONSTRUCTORA
+    // DEL GASTO QUE HAY EN gestionPresupuesto.js y estarán referidas al GASTO-CONCRETO que se pasa 
+    // AL CONSTRUCTOR DE EditarHandle(gasto)
+    this.gasto.actualizarDescripcion(descripcion);
+    this.gasto.actualizarValor(cantidad);
+    this.gasto.actualizarFecha(fecha);
+    // ETIQUETAS: split divide con comas; trim elimina los espacios
+    this.gasto.etiquetas = etiquetasArray.split(',').map(etiqueta => etiqueta.trim());
+
 
 
 
